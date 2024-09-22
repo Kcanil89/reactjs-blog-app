@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/Kcanil89/reactjs-blog-app).
 
 ## Available Scripts
 
@@ -25,22 +25,48 @@ Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+our app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ### `npm run eject`
+API Endpoints
+GET /api/posts: Retrieve a list of all blog posts.
+GET /api/posts/{id}: Retrieve details of a single blog post.
+These endpoints should be tested using Postman.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## API Integration with ReactJS using Axios
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+In our ReactJS project, Axios is used for API requests. Here's an example of how to integrate Axios:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Install Axios if you haven't already:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+'npm install axios'
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+In our component (e.g., BlogList), use Axios to fetch data:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Frontend Development
+
+# Blog List Page
+Objective: Display a list of blog posts, each linked to its detailed view.
+API Integration: Uses Axios to retrieve posts from the Laravel API.
+CSS Styling: Added custom CSS to ensure the blog list page is visually appealing and responsive.
+
+# Blog Detail Page
+Objective: Display detailed content of a selected blog post.
+API Integration: Fetches individual blog post details from the Laravel API when a user clicks on a post.
+CSS Styling: Added custom styling to enhance readability and presentation of the blog content.
+
+# Testing and Debugging
+API Testing
+
+Use Postman to test the API endpoints:
+GET /api/posts
+GET /api/posts/{id}
+Ensure that the API returns the correct data and handles errors appropriately.
+Frontend Testing
+
+## Conclusion
+This assignment demonstrates the integration of ReactJS with Laravel Sanctum API using Axios for a fully functional blog application with user authentication and MongoDB support. The project implements best practices in both frontend and backend development, ensuring a seamless and secure interaction between the two.
