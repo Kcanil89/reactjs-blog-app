@@ -18,9 +18,13 @@ const BlogList: React.FC = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios.get('http://209.38.31.78:8000/api/posts')
+        axios.get('http://209.38.31.78/api/posts')
             .then(response => {
-                setPosts(response.data); // TypeScript now knows response.data is an array of BlogPost
+                // Sort posts by `created_at` in descending order
+                const sortedPosts = response.data.sort((a: BlogPost, b: BlogPost) => {
+                    return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+                });
+                setPosts(sortedPosts); // Set sorted posts
                 setLoading(false);
             })
             .catch(error => {
