@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 // Define a BlogPost interface
 interface BlogPost {
-    _id: string;
+    id: string;
     title: string;
     content: string;
     created_at: string;
@@ -18,7 +18,7 @@ const BlogList: React.FC = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios.get('http://localhost:8000/api/posts')
+        axios.get('http://209.38.31.78:8000/api/posts')
             .then(response => {
                 setPosts(response.data); // TypeScript now knows response.data is an array of BlogPost
                 setLoading(false);
@@ -41,10 +41,10 @@ const BlogList: React.FC = () => {
             ) : (
                 <ul>
                     {posts.map(post => (
-                        <li key={post._id}>
+                        <li key={post.id}>
                             <h2>{post.title}</h2>
                             <p>{post.content.slice(0, 100)}...</p> {/* Shortened content */}
-                            <Link to={`/posts/${post._id}`}>Read More</Link> {/* Link to BlogDetails */}
+                            <Link to={`/posts/${post.id}`}>Read More</Link> {/* Link to BlogDetails */}
                         </li>
                     ))}
                 </ul>

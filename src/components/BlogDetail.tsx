@@ -4,7 +4,7 @@ import axios from 'axios';
 
 // Define BlogPost interface for a single post
 interface BlogPost {
-    _id: string;
+    id: string;
     title: string;
     content: string;
     created_at: string;
@@ -18,7 +18,7 @@ const BlogDetails: React.FC = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/api/posts/${id}`)
+        axios.get(`http://209.38.31.78/api/posts/${id}`)
             .then(response => {
                 setPost(response.data); // Set the post data
                 setLoading(false);
